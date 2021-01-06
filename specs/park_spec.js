@@ -10,7 +10,8 @@ describe('Park', function() {
 
   beforeEach(function () {
     dinosaur1 = new Dinosaur('t-rex', 'carnivore', 50);
-    dinosaurList1.push(dinosaur1);
+    dinosaur2 = new Dinosaur('diplodocus', 'herbivore', 20);
+    dinosaurList1 = [dinosaur1];
     park1 = new Park("Jurassic Park", 10, dinosaurList1);
   });
 
@@ -29,7 +30,16 @@ describe('Park', function() {
     assert.strictEqual(actual, dinosaurList1);
   });
 
-  it('should be able to add a dinosaur to its collection');
+  // console.log(park1.addDinosaur(dinosaur2));
+  // console.log(park1.dinosaurs);
+
+
+  it('should be able to add a dinosaur to its collection', function() {
+    park1.addDinosaur(dinosaur2);
+    dinosaurList1.push(dinosaur2);
+    const actual = park1.dinosaurs;
+    assert.deepStrictEqual(actual, dinosaurList1);
+  });
 
   it('should be able to remove a dinosaur from its collection');
 
