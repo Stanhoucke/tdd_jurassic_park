@@ -85,5 +85,10 @@ describe('Park', function() {
       const actual = park3.dinosaurs;
       assert.deepStrictEqual(actual, [dinosaur2]);
     });
+    it ('should provide count of dinosaur diet types', function () {
+      const dietTypes = { 'carnivore': 1, 'herbivore': 1, 'omnivore': 1 };
+      const actual = park3.dietTypes();
+      assert.deepStrictEqual(actual, dietTypes);
+    });
   });
 });
