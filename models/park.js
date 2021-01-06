@@ -16,4 +16,16 @@ Park.prototype.removeDinosaur = function(dinosaur) {
     }
 };
 
+Park.prototype.mostPopularDinosaur = function() {
+    let popularDinosaur = [this.dinosaurs[0]];
+    for (let i = 1; i < this.dinosaurs.length; i++) {
+        if (this.dinosaurs[i].guestsAttractedPerDay > popularDinosaur.guestsAttractedPerDay) {
+            popularDinosaur = [this.dinosaurs[i]];
+        } else if (this.dinosaurs[i].guestsAttractedPerDay === popularDinosaur.guestsAttractedPerDay) {
+            popularDinosaur.push(this.dinosaurs[i]);
+        };
+    };
+    return popularDinosaur;
+};
+
 module.exports = Park;
