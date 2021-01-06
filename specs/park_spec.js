@@ -68,6 +68,10 @@ describe('Park', function() {
     assert.strictEqual(actual, expected);
   });
 
-  it('should be able to calculate total revenue for one year');
+  it('should be able to calculate total revenue for one year', function() {
+    const actual = park2.yearlyRevenue();
+    const expected = 255500;
+    assert.strictEqual(actual, expected);
+  });
 
 });
