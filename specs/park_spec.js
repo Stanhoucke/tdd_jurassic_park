@@ -5,19 +5,25 @@ const Dinosaur = require('../models/dinosaur.js');
 describe('Park', function() {
 
   let dinosaur1;
+  let dinosaur2;
+  let dinosaur3;
   let dinosaurList1 = [];
   let dinosaurList2 = [];
   let park1;
   let park2;
+  let park3;
   
   beforeEach(function () {
     dinosaur1 = new Dinosaur('t-rex', 'carnivore', 50);
     dinosaur2 = new Dinosaur('diplodocus', 'herbivore', 20);
+    dinosaur3 = new Dinosaur('t-rex', 'omnivore', 10);
     dinosaurList1 = [dinosaur1];
     dinosaurList2 = [dinosaur1, dinosaur2];
+    dinosaurList3 = [dinosaur1, dinosaur2, dinosaur3];
     
     park1 = new Park("Jurassic Park", 10, dinosaurList1);
-    park2 = new Park("Jurassic Park", 10, dinosaurList2);
+    park2 = new Park("Jurassic World", 10, dinosaurList2);
+    park3 = new Park("Friendly Dinos", 6, dinosaurList3);
   });
 
   it('should have a name', function () {
@@ -73,5 +79,11 @@ describe('Park', function() {
     const expected = 255500;
     assert.strictEqual(actual, expected);
   });
-
+  describe('Extensions', function() {
+    it ('should remove all dinosaurs of a species', function() {
+      park3.removeDinosaurBySpecies('t-rex');
+      const actual = park3.dinosaurs;
+      assert.deepStrictEqual(actual, [dinosaur2]);
+    });
+  });
 });
