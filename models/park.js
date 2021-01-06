@@ -28,4 +28,14 @@ Park.prototype.mostPopularDinosaur = function() {
     return popularDinosaur;
 };
 
+Park.prototype.dinosaurBySpecies = function(species) {
+    let dinosaurs = [];
+    for (let dinosaur of this.dinosaurs) {
+        if (dinosaur.species === species) {
+            dinosaurs.push(dinosaur);
+        };
+    };
+    return dinosaurs;
+};
+
 module.exports = Park;
