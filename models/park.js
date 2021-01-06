@@ -38,4 +38,21 @@ Park.prototype.dinosaurBySpecies = function(species) {
     return dinosaurs;
 };
 
+Park.prototype.totalDailyVisitors = function() {
+    let totalDailyVisits = 0;
+    for (let visits of this.dinosaurs) {
+        totalDailyVisits += visits.guestsAttractedPerDay;
+    };
+    return totalDailyVisits;
+};
+
+Park.prototype.totalYearlyVisitors = function() {
+    let totalYearlyVisitors = this.totalDailyVisitors() * 365;
+    return totalYearlyVisitors;
+}
+
+Park.prototype.yearlyRevenue = function() {
+
+}
+
 module.exports = Park;
